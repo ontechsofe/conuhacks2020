@@ -1,4 +1,4 @@
-import { Service } from "typedi";
+import {Service} from "typedi";
 import {Uuid, UuidOptions} from 'node-ts-uuid'
 
 
