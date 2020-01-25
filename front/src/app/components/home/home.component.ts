@@ -7,13 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  private wassup: String = "tats";
-
   constructor() { }
-
-  getWassup() {
-    return this.wassup;
-  }
 
   ngOnInit() {
   }
