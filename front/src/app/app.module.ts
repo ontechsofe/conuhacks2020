@@ -9,6 +9,7 @@ import { NavComponent } from './components/nav/nav.component';
 
 import { FlexLayoutModule } from "@angular/flex-layout";
 
+import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatGridListModule } from '@angular/material/grid-list';
 
@@ -24,6 +25,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
     BrowserAnimationsModule,
     FlexLayoutModule,
 
+    MatButtonModule,
     MatToolbarModule,
     MatGridListModule
   ],
