@@ -6,7 +6,7 @@ import {Uuid, UuidOptions} from 'node-ts-uuid'
 export default class UUIDService {
 
     private readonly options: UuidOptions = {
-        length: 50,
+        length: 20,
     };
 
     constructor() {
