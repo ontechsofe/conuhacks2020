@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  s_url: 'http://60c1f907.ngrok.io',
-  ws_url: 'http://123fdf25.ngrok.io'
+  s_url: 'http://3d16595f.ngrok.io',
+  ws_url: 'http://d7dc1854.ngrok.io'
 };
 
 /*
