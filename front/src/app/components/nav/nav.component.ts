@@ -21,4 +21,12 @@ export class NavComponent implements OnInit {
     this.router.navigate(['/app/party/listen'])
   }
 
+  getPartyCode(): string {
+    let partyCode = localStorage.getItem('partyCode');
+    if (partyCode) {
+      return partyCode;
+    }
+    return 'XXXX';
+  }
+
 }

@@ -4,25 +4,18 @@
     <form class="big-width" fxLayout="column" fxLayoutAlign="center center">
       <div class="full-width">
         <mat-form-field class="full-width">
-          <input
-            type="text"
-            matInput
-            #message
-            maxlength="4"
-            placeholder="Party Code"
-            required
-          />
-          <mat-hint align="start">{{ message.value.length }} / 4</mat-hint>
+          <input #partyCode type="text" matInput maxlength="4" placeholder="Party Code" required />
+          <mat-hint align="start">{{ partyCode.value.length }} / 4</mat-hint>
         </mat-form-field>
       </div>
       <div class="full-width">
         <mat-form-field class="full-width">
-          <input type="text" matInput placeholder="Nickname" required />
+          <input #userName type="text" matInput placeholder="Nickname" required />
         </mat-form-field>
       </div>
 
       <div class="button">
-        <button mat-raised-button (click)="join()" color="accent">Join</button>
+        <button mat-raised-button (click)="join(partyCode.value, userName.value)" color="accent">Join</button>
       </div>
     </form>
   </mat-card-content>

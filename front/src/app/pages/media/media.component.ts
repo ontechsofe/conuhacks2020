@@ -47,7 +47,7 @@ export class MediaComponent implements OnInit {
     return this.playing;
   }
 
-  getSongName(): String {
+  getSongName(): string {
     return this.song.name;
   }
 

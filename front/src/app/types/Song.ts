@@ -1,3 +1,3 @@
 interface Song {
-    name: String;
+    name: string;
 }
