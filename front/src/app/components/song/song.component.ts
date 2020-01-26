@@ -9,9 +9,7 @@ export class SongComponent implements OnInit {
 
   @Input() song: Song;
 
-  constructor() {
-    
-  }
+  constructor() { }
 
   ngOnInit() {
   }
