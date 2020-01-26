@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './pages/home/home.component';
+import { AddToQueueComponent } from './pages/add-to-queue/add-to-queue.component';
 
 const routes: Routes = [
   { path: '',   redirectTo: '/app/home', pathMatch: 'full' },
@@ -12,6 +13,15 @@ const routes: Routes = [
         path: 'home',
         component: HomeComponent
       },
+      {
+        path: 'party',
+        children: [
+          {
+            path: 'vote',
+            component: AddToQueueComponent
+          },
+        ]
+      }
     ]
   },
 ];
