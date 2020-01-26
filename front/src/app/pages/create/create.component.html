@@ -1,28 +1,21 @@
 <mat-card>
-    <mat-card-title>Create Party</mat-card-title>
-    <mat-card-content fxLayout="column" fxLayoutAlign="center center">
-      <form class="big-width" fxLayout="column" fxLayoutAlign="center center">
-        <div class="full-width">
-          <mat-form-field class="full-width">
-            <input
-              type="text"
-              matInput
-              #message
-              placeholder="Party Name"
-              required
-            />
-          </mat-form-field>
-        </div>
-        <div class="full-width">
-          <mat-form-field class="full-width">
-            <input type="text" matInput placeholder="Nickname" required />
-          </mat-form-field>
-        </div>
-  
-        <div class="button">
-          <button mat-raised-button (click)="create()" color="accent">Create Party</button>
-        </div>
-      </form>
-    </mat-card-content>
-  </mat-card>
-  
+  <mat-card-title>Create Party</mat-card-title>
+  <mat-card-content fxLayout="column" fxLayoutAlign="center center">
+    <form class="big-width" fxLayout="column" fxLayoutAlign="center center">
+      <div class="full-width">
+        <mat-form-field class="full-width">
+          <input #partyName type="text" matInput placeholder="Party Name" required />
+        </mat-form-field>
+      </div>
+      <div class="full-width">
+        <mat-form-field class="full-width">
+          <input #userName type="text" matInput placeholder="Nickname" required />
+        </mat-form-field>
+      </div>
+
+      <div class="button">
+        <button mat-raised-button (click)="create(partyName.value, userName.value)" color="accent">Create Party</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

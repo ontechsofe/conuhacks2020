@@ -1,5 +1,5 @@
 <div fxLayout="column" class="lr-padding" fxLayoutGap="10px">
-    <app-search></app-search>
+    <app-search [songs]="songs" ></app-search>
     <div fxflex fxLayoutGap="20px" class="h-80 overflow-scroll">
         <app-song *ngFor="let song of getSongs()" [song]="song"></app-song>
     </div>

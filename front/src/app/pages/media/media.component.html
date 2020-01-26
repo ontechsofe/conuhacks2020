@@ -2,22 +2,17 @@
     <mat-card>
         <mat-card-header>
             <mat-card-title fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px">
-                <h1> {{ getSongName() }} </h1>
-                <button mat-icon-button class="large" color="warn" (click)="viewQueue()"><mat-icon>add</mat-icon></button>
+                <div fxLayout="column">
+                    <h1 class=".mat-h1" *ngIf="party"> {{ getSongName() }} </h1> 
+                </div>
+                <button mat-icon-button class="large" color="warn" (click)="viewQueue()"><mat-icon style="font-size: 40px;">add</mat-icon></button>
             </mat-card-title>
         </mat-card-header>
         <mat-card-actions *ngIf="admin" fxLayout="row" fxLayoutAlign="center" fxLayoutGap="20px">
-            <button mat-fab color="accent" (click)="togglePlayPause()">
-                <ng-container *ngIf="isPlaying(); else notPlaying">
-                    <mat-icon>pause</mat-icon>
-                </ng-container>
-                <ng-template #notPlaying>
-                    <mat-icon>play_arrow</mat-icon>
-                </ng-template>
-            </button>
-            <button mat-fab color="accent" (click)="nextSong()">
-                <mat-icon>skip_next</mat-icon>
-            </button>
+            <button mat-fab color="accent" (click)="play()"><mat-icon>play_arrow</mat-icon></button>
+            <button mat-fab color="accent" (click)="pauseReal()"><mat-icon>pause</mat-icon></button>
+            <button mat-fab color="accent" (click)="pause()"><mat-icon>skip_next</mat-icon></button>
+            <!-- <button mat-fab color="accent" (click)="nextSong()"><mat-icon>skip_next</mat-icon></button> -->
         </mat-card-actions>
     </mat-card>
 </div>

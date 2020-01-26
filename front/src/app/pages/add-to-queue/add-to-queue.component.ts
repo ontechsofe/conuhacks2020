@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MessagingService } from 'src/app/services/messaging/messaging.service';
+import * as io from 'socket.io-client';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-add-to-queue',
@@ -7,35 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddToQueueComponent implements OnInit {
   private songs: Song[];
+  private socket;
 
-  constructor() { }
+  constructor(private messaging: MessagingService) {
+    
+   }
 
   ngOnInit() {
-    this.songs = [{
-      name: "One song"
-    }, {
-      name: "Two song"
-    }, {
-      name: "Three song"
-    },{
-      name: "One song"
-    }, {
-      name: "Two song"
-    }, {
-      name: "Three song"
-    },{
-      name: "One song"
-    }, {
-      name: "Two song"
-    }, {
-      name: "Three song"
-    },{
-      name: "One song"
-    }, {
-      name: "Two song"
-    }, {
-      name: "Three song"
-    },];
+    this.songs = [];
+
+    this.messaging.search.subscribe(data => {
+      this.songs = data;
+    })
+    this.searchAllSongs();
+  }
+
+  searchAllSongs() {
+    this.messaging.searchAllSongs();
   }
 
   getSongs(): Song[] {

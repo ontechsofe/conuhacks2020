@@ -1,3 +1,5 @@
 interface Song {
-    name: String;
+    name: string;
+    songID?: string;
+    songUrl?: string; 
 }

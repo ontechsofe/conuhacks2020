@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PartyService } from 'src/app/services/party/party.service';
 
 @Component({
   selector: 'app-join',
@@ -8,12 +9,20 @@ import { Router } from '@angular/router';
 })
 export class JoinComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(
+    private pService: PartyService
+    ) { }
 
   ngOnInit() {
   }
 
-  join(){
-    //TODO: Join fnc
+  join(partyCode: string, userName: string){
+    partyCode = partyCode.toUpperCase();
+    console.log({ partyCode, userName });
+    this.pService.join(partyCode, userName).subscribe(
+      token => {
+        localStorage.setItem('token', token);
+      }
+    );
   }
 }

@@ -2,8 +2,25 @@
     height: 80%;
 }
 
+.image-container {
+    height: 25vh;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
 .mat-flat-button, .mat-stroked-button {
     min-width: 500px;
     min-height: 100px;
     font-size: 1.2em;
+}
+
+@media only screen and (max-width: 600px) {
+    .mat-flat-button, .mat-stroked-button {
+        min-width: 300px;
+        min-height: 100px;
+        font-size: 1.2em;
+    }
 }
