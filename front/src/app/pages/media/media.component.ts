@@ -25,8 +25,8 @@ export class MediaComponent implements OnInit {
     this.admin = true;
     this.playing = true;
 
-    let partyCode = this.getPartyCode();
-    if (partyCode == null) {
+    let code = this.getPartyCode();
+    if (code == null) {
       // GOTO LOGIN
       this.messaging.disconnect();
       this.router.navigate(['/app/join']);
