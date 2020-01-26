@@ -15,6 +15,10 @@ const routes: Routes = [
         component: HomeComponent
       },
       {
+        path: 'join',
+        component: JoinComponent
+      },
+      {
         path: 'party',
         children: [
           {
