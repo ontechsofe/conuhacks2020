@@ -14,11 +14,11 @@ export class HomeComponent implements OnInit {
   }
 
   redirectJoin() {
-    this.router.navigate(['/app/party/listen'])
+    this.router.navigate(['/app/join'])
   }
 
   redirectCreate() {
-    this.router.navigate(['/app/party/listen'])
+    this.router.navigate(['/app/create'])
   }
 
 }
