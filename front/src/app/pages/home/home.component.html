@@ -6,9 +6,9 @@
         <p><strong>Join a party or start your own!</strong></p>
     </div>
     <div>
-        <button mat-flat-button color="accent">JOIN A PARTY</button>
+        <button mat-flat-button (click)="redirectJoin()" color="accent">JOIN A PARTY</button>
     </div>
     <div>
-        <button mat-stroked-button color="accent">START A PARTY</button>
+        <button mat-stroked-button (click)="redirectCreate()" color="accent">START A PARTY</button>
     </div>
 </div>

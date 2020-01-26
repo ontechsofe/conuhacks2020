@@ -1,0 +1,43 @@
+:host {
+    display: flex;
+    justify-content: center;
+    margin: 100px 0px;
+  }
+
+  .half-width {
+    width: 50%;
+  }
+
+  .full-width {
+    width: 100%;
+  }
+
+  .big-width {
+    width: 75%;
+  }
+
+  .join-field {
+    min-width: 100%;
+  }
+
+  mat-card-title,
+  mat-card-content {
+    display: flex;
+    justify-content: center;
+  }
+
+  .error {
+    padding: 16px;
+    width: 300px;
+    color: white;
+    background-color: red;
+  }
+
+  .button {
+    display: flex;
+    justify-content: center;
+  }
+
+  .mat-card{
+    width: 50%;
+  }
