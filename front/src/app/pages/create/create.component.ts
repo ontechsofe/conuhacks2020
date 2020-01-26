@@ -20,10 +20,16 @@ export class CreateComponent implements OnInit {
   create(partyName: string, userName: string) {
     console.log({ partyName, userName });
     this.pService.start(partyName, userName).subscribe(
-      token => {
+      data => {
+        // data = {token: string, party: Party}
         console.log("LETS GET THIS PARTY STARTED!");
-        console.log(token);
-        localStorage.setItem('token', token);
+        console.log(data);
+        if (data.token) {
+          localStorage.clear();
+          localStorage.setItem('token', data['token']);
+          localStorage.setItem('partyCode', data['party']['code']);
+          this.router.navigate(['/app/party/listen'])
+        }
       }
     );
   }

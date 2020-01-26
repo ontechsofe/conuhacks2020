@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessagingService } from '../../services/messaging/messaging.service';
+import { WebsocketService } from 'src/app/services/websocket/websocket.service';
+import { Party } from 'src/app/types/Party';
 
 
 @Component({
@@ -9,34 +11,31 @@ import { MessagingService } from '../../services/messaging/messaging.service';
   styleUrls: ['./media.component.scss']
 })
 export class MediaComponent implements OnInit {
-
-  private song: Song;
+  private party: Party;
   private admin: boolean;
   private playing: boolean;
-  private partyCode: string;
 
   constructor(
     private router: Router,
-    private messaging: MessagingService
-    ) {
-    this.song = {
-      name: "Random Song Name"
-    };
+    private messaging: MessagingService,
+    private wsService: WebsocketService
+  ) {
     this.admin = true;
-    this.playing = true;
+    this.playing = false;
 
     let code = this.getPartyCode();
     if (code == null) {
       // GOTO LOGIN
       this.messaging.disconnect();
       // this.router.navigate(['/app/join']);
+    } else {
+      console.log('HI');
+      this.joinParty();
+      this.wsService.getData().subscribe(data => this.party = data);
     }
   }
 
   ngOnInit() {
-    this.messaging.messages.subscribe(msg => {
-      console.log(msg);
-    })
   }
 
   getPartyCode(): string {
@@ -45,6 +44,10 @@ export class MediaComponent implements OnInit {
       return partyCode;
     }
     return null;
+  }
+
+  joinParty() {
+    this.messaging.joinParty(this.getPartyCode());
   }
 
   sendMessage() {
@@ -60,18 +63,41 @@ export class MediaComponent implements OnInit {
   }
 
   isPlaying(): boolean {
-    return this.playing;
+    if (this.party && this.party.state == 0) {
+      return true;
+    }
+    return false;
   }
 
   getSongName(): string {
-    return this.song.name;
+    if (this.party) {
+      return this.party.currentlyPlaying ? this.party.currentlyPlaying.name : 'Nothing Playing';
+    }
   }
 
-  pause(): void {
+  pauseReal(): void {
+    let data = {
+      partyId: this.party.id
+    }
+    this.wsService.pauseSong(data);
     this.playing = false;
   }
 
+  pause(): void {
+    let data = {
+      partyId: this.party.id
+    }
+    this.wsService.pauseSong(data);
+    this.playing = false;
+    this.wsService.playSong(data);
+    this.playing = true;
+  }
+
   play(): void {
+    let data = {
+      partyId: this.party.id
+    }
+    this.wsService.playSong(data);
     this.playing = true;
   }
 
@@ -84,7 +110,10 @@ export class MediaComponent implements OnInit {
   }
 
   nextSong(): void {
-    this.sendMessage();
+    let data = {
+      partyId: this.party.id
+    }
+    this.wsService.nextSong(data);
   }
 
 }

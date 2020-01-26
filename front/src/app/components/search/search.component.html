@@ -1,5 +1,5 @@
 <form class="full-width">
     <mat-form-field class="full-width">
-        <input matInput placeholder="Search Song" aria-label="Song">
+        <input #searchVal matInput placeholder="Search Song" aria-label="Song" (keyup.enter)="search(searchVal)">
     </mat-form-field>
 </form>
