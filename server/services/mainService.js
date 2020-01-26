@@ -66,12 +66,13 @@ class Main {
                 currentEventLoopParties[globParty.id] = setInterval(async () => {
                     if (playerOutgoingSocket.length > 0) {
                         let message = getMessageFromQueue();
-                        playerIO.to(globParty.id).emit(message.event, message.data);
+                        console.log(message);
+                        playerIO.to(message.partyId).emit(message.event, message.data);
                     }
 
                     if (frontOutgoingSocket.length > 0) {
                         let message = getMessageFromFrontQueue();
-                        frontIO.to(globParty.id).emit(message.event, message.data);
+                        frontIO.to(message.partyId).emit(message.event, message.data);
                     }
 
                     try {
@@ -89,14 +90,29 @@ class Main {
                                 }
                                 break;
                             case 2: // playing next song
+                                console.log('playing next song state');
                                 let song = party.playlist.shift();
-                                db['parties'].update({
-                                    id: party.id
-                                }, {
-                                    playlist: party.playlist
-                                });
-                                playSong(song.id);
-                                updatePartyState(party.id, 0);
+                                console.log({song});
+                                if (song) {
+                                    db['parties'].update({
+                                        id: party.id
+                                    }, {
+                                        playlist: party.playlist
+                                    });
+                                    console.log('emit the play event');
+                                    db['parties'].update({
+                                        id: party.id
+                                    }, {
+                                        currentlyPlaying: song
+                                    });
+                                    addMessageToQueue(new Message(party.id, 'play', {
+                                        path: song.songUrl,
+                                        mode: 'name'
+                                    }));
+                                    updatePartyState(party.id, 0);
+                                } else {
+                                    updatePartyState(party.id, 1);
+                                }
                                 break;
                         }
                         updatePartyOldState(party.id);
@@ -145,16 +161,28 @@ const getMessageFromFrontQueue = () => {
 frontIO.on('connection', (socket) => {
     console.log(socket.id, `connected FRONT socket`);
     socket.on('join-room', (data) => {
-        socket.join(data);
+        let id = db['parties'].findOne({code: data.partyCode}).id;
+        socket.join(id);
     });
 
     socket.on('disconnect', () => {
         console.log(socket.id, `disconnected FRONT socket`);
     });
 
-    socket.on('search', (data) => {
-        console.log(data);
+    socket.on('search', () => {
         socket.emit('search-result', db['songs'].find());
+    });
+
+    socket.on('play', (data) => {
+        console.log(data);
+        let p = db['parties'].findOne({id: data.partyId});
+        updatePartyState(p.id, 2);
+    });
+
+    socket.on('pause', (data) => {
+        console.log(data);
+        let p = db['parties'].findOne({id: data.partyId});
+        pauseSong(p.id);
     });
 
     socket.on('add-song', (data) => {
@@ -177,6 +205,7 @@ playerIO.on('connection', (socket) => {
     console.log(socket.id, `connected PLAYER socket`);
     socket.on('join-room', (data) => {
         socket.join(data);
+        console.log(data);
     });
     socket.on('disconnect', () => {
         console.log(socket.id, `disconnected PLAYER socket`);
@@ -262,7 +291,7 @@ app.post('/party/join', function (req, res) {
 app.post('/party/start', function (req, res) {
     console.log(req.body);
     let p = {
-        "id": Math.random() * 100,
+        "id": `${Math.floor(Math.random() * 100)}`,
         "name": req.body.partyName,
         "code": generateCode(),
         "playlist": [],
@@ -270,6 +299,7 @@ app.post('/party/start', function (req, res) {
         "oldState": 1,
         "status": 0,
         "previousSong": "",
+        "currentlyPlaying": {},
         "users": [{name: req.body.userName}],
         "oldStatus": 0
     };
@@ -293,8 +323,18 @@ app.get('/party/:id/playlist', function (req, res) {
 
 const playSong = (partyId, songId) => {
     console.log(`play song ${songId}`);
-    addMessageToQueue(new Message(partyId, 'play', {songId}));
-};
+    let song = db['songs'].findOne({id: songId});
+    console.log({"songToBePlayed":song});
+    db['parties'].update({
+        id: partyId
+    }, {
+        currentlyPlaying: song
+    });
+    addMessageToQueue(new Message(partyId, 'play', {
+        path: song.songUrl,
+        mode: 'name'
+    }));
+};``
 
 const pauseSong = (partyId) => {
     console.log(`pause song`);
