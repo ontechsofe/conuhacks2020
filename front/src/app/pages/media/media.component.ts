@@ -29,7 +29,7 @@ export class MediaComponent implements OnInit {
     if (code == null) {
       // GOTO LOGIN
       this.messaging.disconnect();
-      this.router.navigate(['/app/join']);
+      // this.router.navigate(['/app/join']);
     }
   }
 
