@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { MessagingService } from '../../services/messaging/messaging.service';
+
 
 @Component({
   selector: 'app-media',
@@ -12,7 +14,10 @@ export class MediaComponent implements OnInit {
   private admin: boolean;
   private playing: boolean;
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private messaging: MessagingService
+    ) {
     this.song = {
       name: "Random Song Name"
     };
@@ -21,6 +26,13 @@ export class MediaComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.messaging.messages.subscribe(msg => {
+      console.log(msg);
+    })
+  }
+
+  sendMessage() {
+    this.messaging.sendMessage('Test Message.');
   }
 
   viewQueue(): void {
@@ -56,7 +68,7 @@ export class MediaComponent implements OnInit {
   }
 
   nextSong(): void {
-    
+    this.sendMessage();
   }
 
 }
