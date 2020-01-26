@@ -15,7 +15,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { JoinComponent } from './components/join/join.component';
+import { JoinComponent } from './pages/join/join.component';
 
 @NgModule({
   declarations: [

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './pages/home/home.component';
-import { JoinComponent } from './components/join/join.component';
+import { JoinComponent } from './pages/join/join.component';
 
 const routes: Routes = [
   { path: '',   redirectTo: '/app/home', pathMatch: 'full' },
