@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './pages/home/home.component';
+import { JoinComponent } from './components/join/join.component';
 
 const routes: Routes = [
   { path: '',   redirectTo: '/app/home', pathMatch: 'full' },
@@ -12,8 +13,12 @@ const routes: Routes = [
         path: 'home',
         component: HomeComponent
       },
+      {
+        path: 'join',
+        component: JoinComponent
+      },
     ]
-  },
+  }
 ];
 
 @NgModule({

@@ -10,14 +10,19 @@ import { NavComponent } from './components/nav/nav.component';
 import { FlexLayoutModule } from "@angular/flex-layout";
 
 import { MatButtonModule } from '@angular/material/button';
+
+import {MatInputModule} from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { JoinComponent } from './components/join/join.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NavComponent
+    NavComponent,
+    JoinComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +31,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     FlexLayoutModule,
 
     MatButtonModule,
+    MatInputModule,
+    MatCardModule,
     MatToolbarModule,
     MatGridListModule
   ],
