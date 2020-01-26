@@ -1,0 +1,32 @@
+[2020-01-25T18:34:58.314Z] [info] [START] Loading Controllers 
+[2020-01-25T18:34:58.315Z] [info] [START] Loading Express 
+[2020-01-25T18:34:58.321Z] [info] [START] Loading SocketIO 
+[2020-01-25T18:34:58.330Z] [info] [START] Socket listening on port 8889 
+[2020-01-25T18:34:58.330Z] [info] [START] Loading Swagger 
+[2020-01-25T18:34:58.335Z] [info] [START] Loading Monitor 
+[2020-01-25T18:34:58.336Z] [info] [START] Loading Root JSON 
+[2020-01-25T18:34:58.336Z] [info] [START] Loading Public Dir 
+[2020-01-25T18:34:58.336Z] [info] [START] Server is running! 
+[2020-01-25T18:34:58.337Z] [info] [START] Server Listening 8888 
+[2020-01-25T18:34:59.739Z] [debug] [EXPRESS] GET /swagger/ 
+[2020-01-25T18:34:59.774Z] [debug] [EXPRESS] GET /swagger/swagger-ui.css 
+[2020-01-25T18:34:59.775Z] [debug] [EXPRESS] GET /swagger/swagger-ui-bundle.js 
+[2020-01-25T18:34:59.780Z] [debug] [EXPRESS] GET /swagger/swagger-ui-standalone-preset.js 
+[2020-01-25T18:34:59.781Z] [debug] [EXPRESS] GET /swagger/swagger-ui-init.js 
+[2020-01-25T18:34:59.947Z] [debug] [EXPRESS] GET /swagger/favicon-32x32.png 
+[2020-01-25T18:35:02.299Z] [debug] [EXPRESS] GET /swagger/ 
+[2020-01-25T18:35:02.349Z] [debug] [EXPRESS] GET /swagger/swagger-ui.css 
+[2020-01-25T18:35:02.350Z] [debug] [EXPRESS] GET /swagger/swagger-ui-bundle.js 
+[2020-01-25T18:35:02.351Z] [debug] [EXPRESS] GET /swagger/swagger-ui-standalone-preset.js 
+[2020-01-25T18:35:02.352Z] [debug] [EXPRESS] GET /swagger/swagger-ui-init.js 
+[2020-01-25T18:35:02.493Z] [debug] [EXPRESS] GET /swagger/favicon-32x32.png 
+[2020-01-25T18:35:36.503Z] [info] [START] Loading Controllers 
+[2020-01-25T18:35:36.504Z] [info] [START] Loading Express 
+[2020-01-25T18:35:36.511Z] [info] [START] Loading SocketIO 
+[2020-01-25T18:35:36.522Z] [info] [START] Socket listening on port 8889 
+[2020-01-25T18:35:36.522Z] [info] [START] Loading Swagger 
+[2020-01-25T18:35:36.528Z] [info] [START] Loading Monitor 
+[2020-01-25T18:35:36.529Z] [info] [START] Loading Root JSON 
+[2020-01-25T18:35:36.529Z] [info] [START] Loading Public Dir 
+[2020-01-25T18:35:36.529Z] [info] [START] Server is running! 
+[2020-01-25T18:35:36.531Z] [info] [START] Server Listening 8888 
