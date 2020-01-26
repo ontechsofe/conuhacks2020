@@ -20,6 +20,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material';
+import { MediaComponent } from './pages/media/media.component';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { MatInputModule } from '@angular/material';
     NavComponent,
     AddToQueueComponent,
     SongComponent,
-    SearchComponent
+    SearchComponent,
+    MediaComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ import { MatInputModule } from '@angular/material';
     MatCardModule,
     MatAutocompleteModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

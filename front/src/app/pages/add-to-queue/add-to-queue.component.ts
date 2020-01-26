@@ -17,7 +17,25 @@ export class AddToQueueComponent implements OnInit {
       name: "Two song"
     }, {
       name: "Three song"
-    }];
+    },{
+      name: "One song"
+    }, {
+      name: "Two song"
+    }, {
+      name: "Three song"
+    },{
+      name: "One song"
+    }, {
+      name: "Two song"
+    }, {
+      name: "Three song"
+    },{
+      name: "One song"
+    }, {
+      name: "Two song"
+    }, {
+      name: "Three song"
+    },];
   }
 
   getSongs(): Song[] {

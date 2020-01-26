@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './pages/home/home.component';
 import { AddToQueueComponent } from './pages/add-to-queue/add-to-queue.component';
+import { MediaComponent } from './pages/media/media.component';
 
 const routes: Routes = [
   { path: '',   redirectTo: '/app/home', pathMatch: 'full' },
@@ -17,6 +18,9 @@ const routes: Routes = [
         path: 'party',
         children: [
           {
+            path: 'listen',
+            component: MediaComponent
+          }, {
             path: 'vote',
             component: AddToQueueComponent
           },
