@@ -21,6 +21,7 @@ import { JoinComponent } from './pages/join/join.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { CreateComponent } from './pages/create/create.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     JoinComponent,
     AddToQueueComponent,
     SongComponent,
-    SearchComponent
+    SearchComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,
