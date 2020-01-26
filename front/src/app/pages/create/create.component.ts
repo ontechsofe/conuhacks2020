@@ -13,6 +13,6 @@ export class CreateComponent implements OnInit {
   }
 
   create(){
-    this.router.navigate(['/'])
+    //TODO: Create fnc
   }
 }

@@ -14,6 +14,6 @@ export class JoinComponent implements OnInit {
   }
 
   join(){
-    this.router.navigate(['/'])
+    //TODO: Join fnc
   }
 }
