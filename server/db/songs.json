@@ -1,0 +1,12 @@
+[
+  {
+    "name": "cantina band",
+    "songId": "1",
+    "songUrl": "cantina-band.wav"
+  },
+  {
+    "name": "pink panther",
+    "songId": "2",
+    "songUrl": "pink-panther.wav"
+  }
+]
