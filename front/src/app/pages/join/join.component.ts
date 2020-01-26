@@ -17,11 +17,11 @@ export class JoinComponent implements OnInit {
   }
 
   join(partyCode: string, userName: string){
+    partyCode = partyCode.toUpperCase();
     console.log({ partyCode, userName });
     this.pService.join(partyCode, userName).subscribe(
-      resp => {
-        // localStorage.setItem('token', token);
-        console.log(resp);
+      token => {
+        localStorage.setItem('token', token);
       }
     );
   }
