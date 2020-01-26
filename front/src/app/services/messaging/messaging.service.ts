@@ -21,4 +21,8 @@ export class MessagingService {
   sendMessage(msg) {
     this.messages.next(msg);
   }
+
+  disconnect() {
+    this.wsService.disconnect();
+  }
 }

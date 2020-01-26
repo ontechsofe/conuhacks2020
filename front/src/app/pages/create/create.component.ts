@@ -21,6 +21,8 @@ export class CreateComponent implements OnInit {
     console.log({ partyName, userName });
     this.pService.start(partyName, userName).subscribe(
       token => {
+        console.log("LETS GET THIS PARTY STARTED!");
+        console.log(token);
         localStorage.setItem('token', token);
       }
     );

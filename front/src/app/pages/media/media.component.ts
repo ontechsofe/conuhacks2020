@@ -13,6 +13,7 @@ export class MediaComponent implements OnInit {
   private song: Song;
   private admin: boolean;
   private playing: boolean;
+  private partyCode: string;
 
   constructor(
     private router: Router,
@@ -23,12 +24,27 @@ export class MediaComponent implements OnInit {
     };
     this.admin = true;
     this.playing = true;
+
+    let partyCode = this.getPartyCode();
+    if (partyCode == null) {
+      // GOTO LOGIN
+      this.messaging.disconnect();
+      this.router.navigate(['/app/join']);
+    }
   }
 
   ngOnInit() {
     this.messaging.messages.subscribe(msg => {
       console.log(msg);
     })
+  }
+
+  getPartyCode(): string {
+    let partyCode = localStorage.getItem('partyCode');
+    if (partyCode) {
+      return partyCode;
+    }
+    return null;
   }
 
   sendMessage() {

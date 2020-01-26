@@ -22,7 +22,7 @@ export class WebsocketService {
         observer.next(data);
       })
       return () => {
-        this.socket.disconnect();
+        this.disconnect();
       }
     });
 
@@ -33,5 +33,11 @@ export class WebsocketService {
     };
 
     return Subject.create(observer, observable);
+  }
+
+  disconnect(): void {
+    if (this.socket) {
+      this.socket.disconnect();
+    }
   }
 }
